@@ -15,11 +15,18 @@ const Logo = () => {
           top: "20px",
           left: "20px",
           fontSize: "20px",
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
         }}
       >
-        DYH
+        <img
+          src="/model-cube-space.png"
+          alt="logo"
+          style={{ width: "32px", height: "32px" }}
+        />
+        dyh
       </button>
-      <img src="/model-cube-space.png" alt="logo" />
     </>
   );
 };
