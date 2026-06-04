@@ -10,43 +10,9 @@ function App() {
         <Logo />
         <Menu />
         <Background />
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <h1
-            style={{
-              fontSize: "80px",
-              // position: "absolute",
-              // left: "20px",
-              color: "white",
-              zIndex: 9999,
-              fontFamily: "Noirden",
-              fontWeight: 400,
-              width: "45%",
-              textAlign: "left",
-            }}
-          >
-            Daniel - Yachnikov - Hughes -{" "}
-          </h1>
-          <h3
-            style={{
-              fontSize: "40px",
-              // position: "absolute",
-              // left: "20px",
-              color: "white",
-              zIndex: 9999,
-              fontFamily: "Noirden",
-              fontWeight: 400,
-              // width: "50%",
-              // textAlign: "left",
-            }}
-          >
-            Software Engineer
-          </h3>
+        <div className="hero">
+          <h1 className="hero-title">Daniel - Yachnikov - Hughes -{" "}</h1>
+          <h3 className="hero-subtitle">Software Engineer</h3>
         </div>
       </header>
     </div>

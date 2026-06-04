@@ -12,7 +12,7 @@ const Menu = () => {
         aria-label="Main Menu"
         aria-expanded={opened}
         style={{
-          zIndex: 999,
+          zIndex: 10001,
           background: "none",
           border: "none",
           color: "white",

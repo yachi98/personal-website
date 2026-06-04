@@ -31,6 +31,55 @@
   color: white;
 }
 
+/* Hero: name + role. Side-by-side on desktop, stacked on small screens. */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: clamp(8px, 3vw, 32px);
+  width: 100%;
+  padding: 0 clamp(16px, 5vw, 48px);
+  box-sizing: border-box;
+}
+
+.hero-title {
+  margin: 0;
+  width: 45%;
+  min-width: 280px;
+  text-align: left;
+  color: white;
+  z-index: 9999;
+  font-family: "Noirden", sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.25rem, 8vw, 80px);
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  margin: 0;
+  color: white;
+  z-index: 9999;
+  font-family: "Noirden", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.25rem, 4vw, 40px);
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-title,
+  .hero-subtitle {
+    width: 100%;
+    min-width: 0;
+    text-align: left;
+  }
+}
+
 .App-link {
   color: #61dafb;
 }
