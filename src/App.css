@@ -21,7 +21,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #000000;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -43,10 +43,101 @@
   box-sizing: border-box;
 }
 
-.hero-title {
-  margin: 0;
+/* Name + contact button stacked, so the button is always under the name */
+.hero-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(16px, 2vw, 24px);
   width: 45%;
   min-width: 280px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 9999;
+}
+
+.hero-button {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0;
+  padding: clamp(8px, 1.5vw, 16px) clamp(16px, 3vw, 32px);
+  border: 2px solid white;
+  border-radius: 25px;
+  background: transparent;
+  color: white;
+  font-family: "Noirden", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  line-height: 1.6;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Persistent hover state: button stays filled while the cursor is over it,
+   and only reverts once the mouse moves away. */
+.hero-button:hover {
+  background: white;
+  color: #000000;
+}
+
+.hero-button-chevron {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.hero-button:hover .hero-button-chevron {
+  transform: translateX(3px);
+}
+
+/* Shine: a translucent diagonal highlight that sweeps across on hover */
+/* .hero-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+.hero-button:hover::before {
+  animation: hero-button-shine 0.8s ease;
+} */
+
+@keyframes hero-button-shine {
+  from {
+    left: -75%;
+  }
+  to {
+    left: 125%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-button:hover::before {
+    animation: none;
+  }
+}
+
+.hero-title {
+  margin: 0;
+  width: 100%;
   text-align: left;
   color: white;
   z-index: 9999;
@@ -72,12 +163,198 @@
     align-items: flex-start;
   }
 
+  .hero-intro,
   .hero-title,
   .hero-subtitle {
     width: 100%;
     min-width: 0;
     text-align: left;
   }
+}
+
+/* Routed content pages (About, Projects, Contact) */
+.page {
+  position: relative;
+  z-index: 9999;
+  width: 100%;
+  max-width: 720px;
+  padding: 0 clamp(16px, 5vw, 48px);
+  box-sizing: border-box;
+  text-align: left;
+  color: white;
+}
+
+/* Top-aligned page variant: clears the fixed logo/menu instead of centering.
+   Used for taller content like the Experience timeline. */
+.page--top {
+  margin-top: clamp(96px, 14vh, 160px);
+  /* Tight gap between stacked boxes */
+  margin-bottom: 25px;
+  background: rgba(0, 0, 0, 0.489);
+  border: 1px solid rgba(255, 255, 255, 0.291);
+  padding: 40px;
+  border-radius: 25px;
+}
+
+/* Only the top box clears the fixed logo/menu */
+.page--top ~ .page--top {
+  margin-top: 0;
+}
+
+/* Last box clears the fixed footer so the copyright stays separate */
+.page--top:last-child {
+  margin-bottom: clamp(80px, 12vh, 140px);
+}
+
+.page-title {
+  margin: 0 0 clamp(16px, 3vw, 32px);
+  font-family: "Noirden", sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.25rem, 8vw, 80px);
+  line-height: 1.1;
+}
+
+.page-body {
+  margin: 0 0 1.25em;
+  font-family: "Noirden", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  line-height: 1.6;
+}
+
+/* About: tech stack list */
+.skills {
+  margin: 0;
+}
+
+.skills-group {
+  margin: 0 0 clamp(16px, 3vw, 24px);
+}
+
+.skills-group:last-child {
+  margin-bottom: 0;
+}
+
+.skills-label {
+  margin: 0 0 4px;
+  font-family: "Noirden", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  opacity: 0.65;
+}
+
+.skills-list {
+  margin: 0;
+  font-family: "Noirden", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  line-height: 1.6;
+}
+
+/* Contact form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 3vw, 24px);
+}
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-label {
+  font-family: "Noirden", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  opacity: 0.65;
+}
+
+.contact-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: clamp(10px, 1.5vw, 14px) clamp(12px, 2vw, 18px);
+  border: 1px solid rgba(255, 255, 255, 0.291);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  color: white;
+  font-family: "Noirden", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.4;
+}
+
+.contact-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.contact-input:focus {
+  outline: none;
+  border-color: white;
+}
+
+.contact-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-submit {
+  align-self: flex-start;
+}
+
+/* Experience timeline */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 32px;
+  padding-bottom: clamp(24px, 4vw, 40px);
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 6px;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.timeline-item:last-child::before {
+  display: none;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #61dafb;
+  box-shadow: 0 0 0 4px rgba(97, 218, 251, 0.2);
+}
+
+.timeline-role {
+  margin: 0 0 4px;
+  font-family: "Noirden", sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  line-height: 1.2;
+}
+
+.timeline-meta {
+  margin: 0 0 12px;
+  font-family: "Noirden", sans-serif;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  opacity: 0.65;
 }
 
 .App-link {
