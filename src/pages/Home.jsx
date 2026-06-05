@@ -27,7 +27,16 @@ const Home = () => {
           </button>
         </div>
       </div>
-      <h3 className="hero-subtitle">Software Engineer</h3>
+      <div className="hero-details">
+        <h3 className="hero-subtitle">Software Engineer</h3>
+        <p className="hero-paragraph">
+          I’m an experienced frontend engineer with around three and a half
+          years of experience, mainly working with React, TypeScript and
+          Next.js. I was the sole frontend engineer on a large customer portal
+          at Darktrace, so I owned features end‑to‑end — from shaping the UX to
+          building, testing and shipping them.
+        </p>
+      </div>
     </div>
   );
 };
