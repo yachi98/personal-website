@@ -1,9 +1,14 @@
 // import LogoDYH from "../../../public/model-cube-space.png";
+import { useNavigate } from "react-router-dom";
 
 const Logo = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <button
+        onClick={() => navigate("/")}
+        aria-label="Go to home"
         style={{
           zIndex: 999,
           fontFamily: "Noirden",
