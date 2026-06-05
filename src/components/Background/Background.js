@@ -17,6 +17,8 @@ export default function VantaBackground() {
           gyroControls: false,
           minHeight: 200,
           minWidth: 200,
+          baseColor: 0xbf28cd,
+          backgroundColor: 0x0,
         }),
       );
     }
