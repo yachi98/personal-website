@@ -141,9 +141,11 @@
   text-align: left;
   color: white;
   z-index: 9999;
+  text-transform: uppercase;
   font-family: "Noirden", sans-serif;
   font-weight: 400;
-  font-size: clamp(2.25rem, 8vw, 80px);
+  font-size: clamp(2.25rem, 16vw, 100px);
+  /* font-size: clamp(2.25rem, 8vw, 80px); */
   line-height: 1.1;
 }
 
