@@ -25,7 +25,6 @@ const Logo = () => {
           alt="logo"
           style={{ width: "32px", height: "32px" }}
         />
-        dyh
       </button>
     </>
   );

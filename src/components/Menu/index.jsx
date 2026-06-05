@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./style.css";
 
-const Menu = () => {
-  const [opened, setOpened] = useState(false);
+const Menu = ({ opened, setOpened }) => {
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
 
   return (
     <>
@@ -43,19 +43,21 @@ const Menu = () => {
         aria-hidden={!opened}
       >
         <ul>
-          <li>
-            <Link to="/" onClick={() => setOpened(false)}>
-              Home
-            </Link>
-          </li>
+          {!isHome && (
+            <li>
+              <Link to="/" onClick={() => setOpened(false)}>
+                Home
+              </Link>
+            </li>
+          )}
           <li>
             <Link to="/about" onClick={() => setOpened(false)}>
               About
             </Link>
           </li>
           <li>
-            <Link to="/projects" onClick={() => setOpened(false)}>
-              Projects
+            <Link to="/experience" onClick={() => setOpened(false)}>
+              Experience
             </Link>
           </li>
           <li>
