@@ -1,10 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="hero">
       <div className="hero-intro">
         <h1 className="hero-title">Daniel Yachnikov - Hughes </h1>
         <div className="hero-buttons">
-          <button className="hero-button">
+          <button className="hero-button" onClick={() => navigate("/contact")}>
             Get in touch
             <svg
               className="hero-button-chevron"
