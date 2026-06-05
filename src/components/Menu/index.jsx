@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 const Menu = () => {
@@ -43,19 +44,24 @@ const Menu = () => {
       >
         <ul>
           <li>
-            <a href="#about" onClick={() => setOpened(false)}>
+            <Link to="/" onClick={() => setOpened(false)}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" onClick={() => setOpened(false)}>
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#projects" onClick={() => setOpened(false)}>
+            <Link to="/projects" onClick={() => setOpened(false)}>
               Projects
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#contact" onClick={() => setOpened(false)}>
+            <Link to="/contact" onClick={() => setOpened(false)}>
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
