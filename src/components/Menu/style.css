@@ -91,7 +91,6 @@
   font-size: clamp(2.5rem, 12vw, 100px);
   line-height: 1.1;
   font-weight: 500;
-  /* color: white; */
   color: transparent;
   -webkit-text-stroke: clamp(1px, 0.3vw, 2px) rgb(255, 255, 255);
   text-decoration: none;
