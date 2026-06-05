@@ -35,22 +35,24 @@ const experience = [
 
 const Experience = () => {
   return (
-    <div className="page page--top">
-      <h1 className="page-title">Experience</h1>
-      <ol className="timeline">
-        {experience.map((job) => (
-          <li className="timeline-item" key={job.company}>
-            <span className="timeline-marker" />
-            <div className="timeline-content">
-              <h2 className="timeline-role">{job.role}</h2>
-              <p className="timeline-meta">
-                {job.company} · {job.location} · {job.period}
-              </p>
-              <p className="page-body">{job.summary}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
+    <div style={{ padding: "25px" }}>
+      <div className="page page--top">
+        <h1 className="page-title">Experience</h1>
+        <ol className="timeline">
+          {experience.map((job) => (
+            <li className="timeline-item" key={job.company}>
+              <span className="timeline-marker" />
+              <div className="timeline-content">
+                <h2 className="timeline-role">{job.role}</h2>
+                <p className="timeline-meta">
+                  {job.company} · {job.location} · {job.period}
+                </p>
+                <p className="page-body">{job.summary}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
     </div>
   );
 };
